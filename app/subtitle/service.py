@@ -23,7 +23,11 @@ class SubtitleService:
 
         subs = seq(SubtitleRepository.find_next_by_hash3(idf_hash.hash3))
         if not subs:
+            subs = seq(SubtitleRepository.find_next_by_hash3(idf_hash.hash2))
+        if not subs:
             subs = seq(SubtitleRepository.find_next_by_hash2(idf_hash.hash2))
+        if not subs:
+            subs = seq(SubtitleRepository.find_next_by_hash3(idf_hash.hash1))
         if not subs:
             subs = seq(SubtitleRepository.find_next_by_hash1(idf_hash.hash1))
         return subs.map(lambda sub: sub.text).to_list()

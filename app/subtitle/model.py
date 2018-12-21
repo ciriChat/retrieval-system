@@ -32,7 +32,7 @@ class SubtitleRepository:
            WHERE {} = :hash 
            ORDER BY RAND() 
        )
-       LIMIT 1 
+       LIMIT 50 
     '''
 
     @classmethod
